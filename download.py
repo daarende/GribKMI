@@ -1,8 +1,8 @@
 import urllib.request
 
-urllib.request.urlretrieve(url, file_name)
+#urllib.request.urlretrieve(url, file_name)
 
-baseUrl = 'http://opendata.meteo.be//download.php'
+baseUrl = 'http://opendata.meteo.be//download.php?'
 format = 'grib'
 type = 'raster'
 workspace = 'alaro'
@@ -26,7 +26,7 @@ layers = ['10_m_u__wind_component',
           'Inst_flx_High_Cld_Cover',
           'Inst_flx_Low_Cld_Cover',
           'Inst_flx_Medium_Cld_Cover',
-          'Inst_flx_Tot_Cld_Cover',
+          'Inst_flx_Tot_Cld_cover', #checken
           'Large_scale_rain',
           'Large_scale_snow',
           'Mean_sea_level_pressure',
@@ -45,7 +45,9 @@ layers = ['10_m_u__wind_component',
           'freezing_level_zeroDegC_isotherm']
 
 for lyr in layers:
-    url = ''
+    url = '{}workspace={}&type={}&layer={}'.format(baseUrl, workspace, type, lyr)
+    url += '&format={}&bbox={}'.format(format,bbox)
+    print(url)
 
 
-'http://opendata.meteo.be//download.php?workspace=alaro&type=raster&layer=10_m_u__wind_component&format=grib&bbox=47.379315679724,-0.1415255706207,53.640688592737,9.2485256906048'
+#'http://opendata.meteo.be//download.php?workspace=alaro&type=raster&layer=10_m_u__wind_component&format=grib&bbox=47.379315679724,-0.1415255706207,53.640688592737,9.2485256906048'
