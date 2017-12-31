@@ -93,47 +93,20 @@ for f in lst:
             grb.indicatorOfParameter = 13
             writeGribMessage(grb)
 
+        elif param == 198:
+            #Tmax
+            grb.indicatorOfParameter = 15
+            writeGribMessage(grb)
 
-    # try:
-    #     # Mean sea level pressure
-    #     msg_mslp = grbs.select(indicatorOfParameter=41)
-    #     msg_mslp.indicatorOfParameter = 2
-    #     msg_mslp.indicatorOfTypeOfLevel = 'sfc'
-    #     msg_mslp.typeOfLevel = 'meanSea'
-    #     writeGribMessage(msg_mslp)
-    # except ValueError:
-    #     msg = 'No MSLP in %s' %f
-    #     print(msg)
+        elif param == 199:
+            #Tmin
+            grb.indicatorOfParameter = 16
+            writeGribMessage(grb)
 
-    # # Relative humidity
-    # msg_rh = grbs.select(indicatorOfParameter=52)[0]
-    # msg_rh.values = msg_rh.values * 100
-    # writeGribMessage(msg_rh)
-    #
-    # # Temperature 2m
-    # msg_t = grbs.select(indicatorOfParameter=11)[0]
-    # writeGribMessage(msg_t)
-    #
-    # # U-wind
-    # msg_u = grbs.select(indicatorOfParameter=33)[0]
-    # writeGribMessage(msg_u, wind=True)
-    #
-    # # V-wind
-    # msg_v = grbs.select(indicatorOfParameter=34)[0]
-    # writeGribMessage(msg_v, wind=True)
-    #
-    # # Precipication Intensity
-    # msg_ip = grbs.select(indicatorOfParameter=61, level=456)[0]
-    # msg_ip.typeOfLevel = 'surface'
-    # msg_ip.level = 0
-    # msg_ip.values = msg_ip.values * 3600  # mm/s => mm/h
-    # writeGribMessage(msg_ip)
-    #
-    # # Wind gusts
-    # msg_ug = grbs.select(indicatorOfParameter=162)[0]
-    # msg_vg = grbs.select(indicatorOfParameter=163)[0]
-    # msg_ug.values = sqrt(msg_ug.values ** 2 + msg_vg.values ** 2)
-    # msg_ug.indicatorOfParameter = 180
-    # msg_ug.typeOfLevel = 'surface'
-    # msg_ug.level = 0
-    # writeGribMessage(msg_ug, wind=True)
+        elif param == 234:
+            #0°C isotherm
+            grb.indicatorOfParameter = 141
+            writeGribMessage(grb)
+
+msg = 'GRIB file for zyGRIB written!'
+print(msg)
