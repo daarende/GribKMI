@@ -1,3 +1,8 @@
+##----------------------------------------------
+##author: daan renders
+##purpose: converting alaro gribs to the format of ZyGrib
+##----------------------------------------------
+
 import pygrib
 import os
 
@@ -5,6 +10,8 @@ import os
 #http://opendata.meteo.be/geonetwork/srv/dut/catalog.search#/metadata/RMI_DATASET_ALARO
 
 
+
+##----------------------------------------------
 def writeGribMessage(message, wind=False):
     message['generatingProcessIdentifier'] = 96
     message['centre'] = 'kwbc'
@@ -13,7 +20,8 @@ def writeGribMessage(message, wind=False):
     if wind:
         gribout_wind.write(message.tostring())
     return
-
+    
+##------------------------------------------------  
 DATADIR = os.path.expanduser("~/PycharmProjects/GribKMI/testdata")
 TMPDIR = os.path.join(DATADIR, 'OUTTEST')
 
