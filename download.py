@@ -49,5 +49,4 @@ for lyr in layers:
     url += '&format={}&bbox={}'.format(format,bbox)
     print(url)
 
-
-#'http://opendata.meteo.be//download.php?workspace=alaro&type=raster&layer=10_m_u__wind_component&format=grib&bbox=47.379315679724,-0.1415255706207,53.640688592737,9.2485256906048'
+	#TO DO: downloading gribfile
